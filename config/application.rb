@@ -6,6 +6,13 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
+# require railties and engines here.
+require_relative "../lib/boot_inquirer"
+
+BootInquirer.each_active_app do |app|
+  require app.gem_name
+end
+
 module RailsEnginesExample
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
