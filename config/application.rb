@@ -2,12 +2,13 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
-# Require the gems listed in Gemfile, including any gems
-# you've limited to :test, :development, or :production.
-Bundler.require(:default, Rails.env)
+# Note: this doesn't require the gems
+# You should require when needed
+Bundler.setup(:default, Rails.env)
 
 # require railties and engines here.
 require_relative "../lib/boot_inquirer"
+require 'shared'
 
 BootInquirer.each_active_app do |app|
   require app.gem_name
@@ -25,6 +26,7 @@ module RailsEnginesExample
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    # config.i18n.default_locale = :de
+    config.i18n.enforce_available_locales = true
+    config.i18n.default_locale = :en
   end
 end

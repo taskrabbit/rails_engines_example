@@ -1,12 +1,12 @@
 # This determines which engines to boot / mount within the operator app (v3).
 # The boot flag is a collection of characters representing the different engines in this project
 # For example:
-#   ~> TR_BOOT=sob bundle exec rails c
-#   => will boot the search, organic, and bio engines - but not frontend, identity, etc.
+#   ~> ENGINE_BOOT=am bundle exec rails c
+#   => will boot the account and marketing engines - but not content, admin, etc.
 #
 # The boot flag can be negated to have the opposite effect.
 # For example:
-#   ~> TR_BOOT=-f bundle exec rails c
+#   ~> ENGINE_BOOT=-f bundle exec rails c
 #   => will boot all engines except frontend
 #
 # The boot flag characters are not necessarily the first letter of each engine name, so check this file if you're using boot flags.
@@ -16,6 +16,7 @@
 class BootInquirer
   APPS = {
     'a' => 'account',
+    'c' => 'content',
     'm' => 'marketing'
   }
 
@@ -57,7 +58,7 @@ class BootInquirer
     end
 
     def boot_flag
-      @boot_flag ||= ENV['TR_BOOT']
+      @boot_flag ||= ENV['ENGINE_BOOT']
     end
 
     def negate?

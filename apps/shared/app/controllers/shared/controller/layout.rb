@@ -6,6 +6,7 @@ module Shared
       included do
         layout 'shared/layouts/application'
         include Shared::Controller::Authentication
+        include Shared::Controller::Manifests
       end
     end
   end

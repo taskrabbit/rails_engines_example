@@ -1,0 +1,16 @@
+.posts-index-container
+  %h1 Posts
+
+  = form_for @post do |f|
+    .form-group
+      = f.text_area :content, class: 'form-control'
+
+    = f.submit "Post", class: "btn btn-primary"
+
+  .post-list
+    - @posts.each do |post|
+      .post.well
+        = display_content(post.content)
+        %span.timestamp= display_time(post.created_at)
+
+= paginate(@posts)

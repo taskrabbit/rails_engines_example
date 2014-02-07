@@ -24,6 +24,12 @@ module Shared
 
         @current_user = klass.find_by_id(session[:current_user_id])
       end
+
+      protected
+
+      def require_user
+        redirect_to "/" unless current_user
+      end
     end
   end
 end

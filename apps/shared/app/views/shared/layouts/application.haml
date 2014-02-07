@@ -9,7 +9,8 @@
     
     %title Rails Engines Example
 
-    = stylesheet_link_tag 'shared/application', media: "all"
+    = stylesheet_link_tag 'shared/manifests/application'
+    = render_manifests('css')
     
   %body
     .navbar.navbar-fixed-top.navbar-inverse{role: "navigation"}
@@ -38,5 +39,6 @@
       
       %footer
     
-    = javascript_include_tag 'shared/application'
+    = javascript_include_tag 'shared/manifests/application'
+    = render_manifests('js')
         

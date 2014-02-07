@@ -9,8 +9,16 @@ FixtureBuilder.configure do |fbuilder|
     # =================================================================
     load(Rails.root.join('db/seeds.rb'))
 
-    paul = fbuilder.name(:paul, FactoryGirl.create(:user, first_name: 'Paul', last_name: 'Poster',  email: 'paul@example.com')).first
+    # =================================================================
+    # Account
+    # =================================================================
+    willy = fbuilder.name(:willy, FactoryGirl.create(:user, first_name: 'Willy', last_name: 'Watcher',  email: 'willy@example.com')).first
+    paul  = fbuilder.name(:paul,  FactoryGirl.create(:user, first_name: 'Paul',  last_name: 'Poster',   email: 'paul@example.com')).first
 
+    # =================================================================
+    # Content
+    # =================================================================
+    post = fbuilder.name(:post, FactoryGirl.create(:post, user_id: paul.id, content: "Fixtures are cool.")).first
 
   end
 

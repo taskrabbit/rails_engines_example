@@ -1,8 +1,8 @@
-module Account
+module Content
   class Engine < ::Rails::Engine
-    isolate_namespace Account
+    isolate_namespace Content
     
-    initializer 'account.append_migrations' do |app|
+    initializer 'content.append_migrations' do |app|
       unless app.root.to_s == root.to_s
         config.paths["db/migrate"].expanded.each do |path|
           app.config.paths["db/migrate"].push(path)
@@ -10,8 +10,8 @@ module Account
       end
     end
 
-    initializer 'account.asset_precompile_paths' do |app|
-      app.config.assets.precompile += ["account/manifests/*"]
+    initializer 'content.asset_precompile_paths' do |app|
+      app.config.assets.precompile += ["content/manifests/*"]
     end
   end
 end
