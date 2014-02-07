@@ -9,7 +9,7 @@
     
     %title Rails Engines Example
 
-    = stylesheet_link_tag 'marketing/application', media: "all"
+    = stylesheet_link_tag 'shared/application', media: "all"
     
   %body
     .navbar.navbar-fixed-top.navbar-inverse{role: "navigation"}
@@ -19,13 +19,24 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.navbar-brand{href: root_path} Rails Engines Example
-                    
-              
+          %a.navbar-brand{href: "/"} Rails Engine Example
+        .collapse.navbar-collapse
+          %ul.nav.navbar-nav.navbar-right.dropdown
+            - if current_user
+              %li
+                %a{href: "/posts"} Posts
+              %li
+                %a{href: "/logout"} Logout
+            - else
+              %li
+                %a{href: "/signup"} Sign Up
+              %li
+                %a{href: "/login"} Log In
+          
     .container
       = yield
       
       %footer
     
-    = javascript_include_tag 'marketing/application'
+    = javascript_include_tag 'shared/application'
         

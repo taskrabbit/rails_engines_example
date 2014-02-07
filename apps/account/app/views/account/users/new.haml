@@ -1,0 +1,26 @@
+%h1 Sign Up
+
+= show_object_errors(@user)
+
+= form_for @user, url: signup_path do |f|
+  .form-group
+    = f.label :first_name
+    = f.text_field :first_name, class: 'form-control'
+
+  .form-group
+    = f.label :last_name
+    = f.text_field :last_name, class: 'form-control'
+
+  .form-group
+    = f.label :email
+    = f.text_field :email, class: 'form-control'
+
+  .form-group
+    = f.label :password
+    = f.password_field :password, class: 'form-control'
+
+  .form-group
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation, class: 'form-control'
+
+  = f.submit "Create Account", class: "btn btn-primary"

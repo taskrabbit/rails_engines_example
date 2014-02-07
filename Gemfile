@@ -6,6 +6,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.1'
 
 
+gemspec path: "apps/shared"
 BootInquirer.each_active_app do |app|
   gemspec path: "apps/#{app.gem_name}"
 end
@@ -39,14 +40,21 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
-
 # Use unicorn as the app server
 # gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
-# Use debugger
-# gem 'debugger', group: [:development, :test]
+group :development, :test do
+  gem 'byebug'
+end
+
+group :test do
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'forgery'
+  gem 'fixture_builder'
+end
+

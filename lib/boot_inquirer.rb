@@ -15,6 +15,7 @@
 
 class BootInquirer
   APPS = {
+    'a' => 'account',
     'm' => 'marketing'
   }
 

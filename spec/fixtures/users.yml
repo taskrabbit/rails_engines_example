@@ -1,0 +1,7 @@
+---
+paul:
+  id: 2
+  first_name: Paul
+  last_name: Poster
+  email: paul@example.com
+  password_digest: $2a$04$6tsV6Y3Gm3bAsEUJTPNrvu8.5nPzvNtCXw5juaPQRxuQ422Gx7y8W
