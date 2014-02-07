@@ -1,0 +1,71 @@
+!!! 5
+%html
+  %head
+    %meta{charset: 'utf-8'}
+    %meta{'http-equiv' => 'X-UA-Compatible', content: 'IE=edge,chrome=1'}
+    %meta{name: 'viewport',    content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0 user-scalable=no'}
+    %meta{name: 'apple-mobile-web-app-capable',          content: 'yes'}
+    %meta{name: 'apple-mobile-web-app-status-bar-style', content: 'black'}
+
+    %title TaskRabbit Admin
+
+    = stylesheet_link_tag 'admin/manifests/application'
+    = render_manifests('css')
+
+    = yield :javascript
+
+    = csrf_meta_tags
+
+  %body
+    .navbar.navbar-fixed-top.navbar-inverse{role: "navigation"}
+      .container
+        .navbar-header
+          %a.navbar-brand{href: root_path} TaskRabbit Admin
+        - if current_user
+          %ul.nav.navbar-nav.navbar-right
+            %li
+              %a{href: logout_path} Logout
+
+
+    .container
+      - if !skip_header? && (header = render_rescue(:header)).present?
+        #header.page-header
+          = header
+
+      - flash.keys.each do |name|
+        %div{class: "alert alert-#{alert_bootstrap(name)}"}
+          = flash[name] if flash[name].present?
+        - flash.delete(name)
+
+      .row
+        - unless skip_sidebar?
+          .col-md-3
+            - if (title = render_rescue(:title)).present?
+              #title.well
+                = title
+
+            - if (actions = render_rescue(:actions)).present?
+              #actions.well
+                = actions
+
+            - if (panels = render_rescue(:panels)).present?
+              #panels.well{role: "navigation"}
+                = panels
+        - col_class = skip_sidebar? ? "" : "col-md-9"
+        %div{class: col_class}
+          .container
+            - if !skip_top_bottom? && (main_head = render_rescue(:top)).present?
+              #top.row
+                = main_head
+
+            #panel.row
+              = yield
+
+            - if !skip_top_bottom? &&  (main_bottom = render_rescue(:bottom)).present?
+              #bottom.row
+                = main_bottom
+
+      %footer
+
+    = javascript_include_tag 'admin/manifests/application'
+    = render_manifests('js')

@@ -1,0 +1,7 @@
+%h2 Edit Post
+
+= form_for @post do |f|
+  .form-group
+    = f.text_area :content, class: 'form-control'
+
+  = f.submit "Post", class: "btn btn-primary"

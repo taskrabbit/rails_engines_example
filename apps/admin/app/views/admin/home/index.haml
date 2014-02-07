@@ -1,0 +1,16 @@
+.row
+  .col-md-6
+    = form_for @post_search, url: post_search_path, method: 'get', html: {class: 'form-inline'} do |f|
+      %fieldset
+        %legend Post Search
+        .form-group
+          = f.text_field :query, placeholder: "content, post id", name: 'query', class: "form-control", style: "width: 300px;"
+        = f.submit 'Post Search', class: "btn btn-default"
+
+  .col-md-6
+    = form_for @user_search, url: user_search_path, method: 'get', html: {class: 'form-inline'} do |f|
+      %fieldset
+        %legend User Search
+        .form-group
+          = f.text_field :query, placeholder: "email, name, user id", name: 'query', class: "form-control", style: "width: 300px;"
+        = f.submit 'User Search', class: "btn btn-default"

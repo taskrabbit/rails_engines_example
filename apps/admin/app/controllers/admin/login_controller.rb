@@ -1,16 +1,19 @@
-module Account
-  class LoginController < ::Account::ApplicationController
+module Admin
+  class LoginController < ::Admin::ApplicationController
     helper Shared::Helper::Errors
+
+    skip_before_filter :require_admin_user
 
     def new
       login!(current_user) and return if current_user
-      @user = Account::User.new
+      @user = Admin::User.new
     end
 
     def create
-      @user = Account::User.find_by_email(account_params[:email])
+      @user = Admin::User.find_by_email(account_params[:email])
       try_again and return unless @user
-      try_again and return unless @user.authenticate(account_params[:password])
+      try_again and return unless @user.authenticate(account_params[:password]) 
+      try_again and return unless @user.admin?
       login!(@user)
     end
 
@@ -21,7 +24,7 @@ module Account
     protected
 
     def try_again
-      @user = Account::User.new(account_params)
+      @user = Admin::User.new(account_params)
       @user.errors.add(:base, "Account not found.")
       render :new
     end

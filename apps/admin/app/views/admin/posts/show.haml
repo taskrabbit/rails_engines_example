@@ -1,0 +1,8 @@
+%h2 Post
+
+%dl.dl-horizontal
+  = display_properties(@post, :user, :created_at)
+
+%hr
+
+= display_markdown(@post.content)

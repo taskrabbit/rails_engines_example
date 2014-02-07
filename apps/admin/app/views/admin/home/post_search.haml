@@ -1,0 +1,12 @@
+%table.table
+  %thead
+    %tr
+      %th Created At
+      %th Poster
+      %th Content
+  %tbody
+    - @results.each do |post|
+      %tr
+        %td= link_to(display_time(post.created_at), post_path(post))
+        %td= link_to_name(post.user)
+        %td= truncate(post.content, length: 120)

@@ -6,6 +6,17 @@ PATH
       rails (~> 4.0.1)
 
 PATH
+  remote: apps/admin
+  specs:
+    admin (0.0.1)
+      account
+      content
+      kaminari
+      kaminari-bootstrap
+      rails (~> 4.0.1)
+      redcarpet
+
+PATH
   remote: apps/content
   specs:
     content (0.0.1)
@@ -165,6 +176,7 @@ PLATFORMS
 
 DEPENDENCIES
   account!
+  admin!
   byebug
   content!
   factory_girl_rails

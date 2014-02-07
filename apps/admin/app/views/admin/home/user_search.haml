@@ -1,0 +1,12 @@
+%table.table
+  %thead
+    %tr
+      %th Created At
+      %th Name
+      %th Email
+  %tbody
+    - @results.each do |user|
+      %tr
+        %td= display_time(user.created_at)
+        %td= link_to_name(user)
+        %td= link_to user.email, user

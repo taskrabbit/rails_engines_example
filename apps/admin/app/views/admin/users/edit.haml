@@ -1,0 +1,16 @@
+%h2 Edit
+
+= form_for @user do |f|
+  .form-group
+    = f.label :first_name
+    = f.text_field :first_name, class: 'form-control'
+
+  .form-group
+    = f.label :last_name
+    = f.text_field :last_name, class: 'form-control'
+
+  .form-group
+    = f.label :email
+    = f.text_field :email, class: 'form-control'
+
+  = f.submit "Edit", class: "btn btn-primary"

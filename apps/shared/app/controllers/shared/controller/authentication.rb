@@ -8,11 +8,6 @@ module Shared
         helper_method :current_user
       end
 
-
-      def logged_in?
-        !!current_user
-      end
-
       def current_user
         return @current_user if defined?(@current_user)
         @current_user = nil

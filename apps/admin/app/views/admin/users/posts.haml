@@ -1,0 +1,14 @@
+%h2 My Posts
+
+%table.table
+  %thead
+    %tr
+      %th Time
+      %th Content
+  %tbody
+    - @posts.each do |post|
+      %tr
+        %td= link_to(display_time(post.created_at), post_path(post))
+        %td= display_markdown(post.content)
+
+= paginate(@posts)
