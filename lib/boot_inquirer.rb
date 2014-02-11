@@ -6,8 +6,8 @@
 #
 # The boot flag can be negated to have the opposite effect.
 # For example:
-#   ~> ENGINE_BOOT=-f bundle exec rails c
-#   => will boot all engines except frontend
+#   ~> ENGINE_BOOT=-m bundle exec rails c
+#   => will boot all engines except marketing
 #
 # The boot flag characters are not necessarily the first letter of each engine name, so check this file if you're using boot flags.
 #

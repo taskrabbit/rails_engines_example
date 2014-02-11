@@ -1,17 +1,19 @@
 ---
 willy:
-  id: 3
+  id: 1
   first_name: Willy
   last_name: Watcher
   email: willy@example.com
-  password_digest: $2a$04$Deg1n8nlB9rf4rT1PXRda.Q/kPyz3bXzuBXYwihB9SFUQICwlWb4m
-  created_at: '2014-02-07 03:43:07.516138'
-  updated_at: '2014-02-07 03:43:07.516138'
+  password_digest: $2a$04$nYODEwHhzx0X/h0.sTTnNOEkaHjzA/M.WMadzNNIPONNwAn81khPm
+  created_at: '2014-02-10 16:00:57.969093'
+  updated_at: '2014-02-10 16:00:57.969093'
+  admin: f
 paul:
-  id: 4
+  id: 2
   first_name: Paul
   last_name: Poster
   email: paul@example.com
-  password_digest: $2a$04$mN8.17ec4YC0IwMcl9N3JeqJPYdXThwsAfh19Ea0BcivY9mLcQMoa
-  created_at: '2014-02-07 03:43:07.523289'
-  updated_at: '2014-02-07 03:43:07.523289'
+  password_digest: $2a$04$MTxF1wejSRbCAkZ8.0Kk7.8R1/SAMOE9DVAzC8uErmCc30r6NJgl2
+  created_at: '2014-02-10 16:00:58.018112'
+  updated_at: '2014-02-10 16:00:58.018112'
+  admin: f

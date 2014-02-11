@@ -1,7 +1,7 @@
 ---
 post:
   id: 1
-  user_id: 4
+  user_id: 2
   content: Fixtures are cool.
-  created_at: '2014-02-07 03:43:07.547518'
-  updated_at: '2014-02-07 03:43:07.547518'
+  created_at: '2014-02-10 16:00:58.050118'
+  updated_at: '2014-02-10 16:00:58.050118'
