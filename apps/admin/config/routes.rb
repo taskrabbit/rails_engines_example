@@ -6,8 +6,8 @@ Admin::Engine.routes.draw do
     get 'search/users' => "home#user_search", as: 'user_search'
 
     get  'login'  => 'login#new'
-    post 'login'  => 'login#create', as: 'logout'
-    get  'logout' => 'login#destroy'
+    post 'login'  => 'login#create'
+    get  'logout' => 'login#destroy', as: 'logout'
 
     resources :users, only: [:show, :edit, :update] do
       member do
